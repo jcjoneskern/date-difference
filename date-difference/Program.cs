@@ -10,13 +10,10 @@ namespace date_difference
             Console.WriteLine("Enter a date (mm/dd/yyyy):");
             String date = Console.ReadLine();
 
-            bool valid = DateTime.TryParseExact(date, "MM/dd/yyyy", new CultureInfo("en-US"), DateTimeStyles.None, out DateTime result);
-
-            while (!valid)
+            while (!(DateTime.TryParseExact(date, "MM/dd/yyyy", new CultureInfo("en-US"), DateTimeStyles.None, out DateTime result)))
             {
                 Console.WriteLine("That is not a valid date. Enter a date (mm/dd/yyyy):");
                 date = Console.ReadLine();
-                valid = DateTime.TryParseExact(date, "MM/dd/yyyy", new CultureInfo("en-US"), DateTimeStyles.None, out result);
             }
 
             DateTime parsedDate = DateTime.ParseExact(date, "MM/dd/yyyy", new CultureInfo("en-US"), DateTimeStyles.None);
